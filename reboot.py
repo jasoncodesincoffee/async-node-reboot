@@ -66,7 +66,6 @@ async def main(argv):
         if not (2 <= len(sys.argv[1:]) <= 4):
             print('****** # ERROR: Incorrect number of parameters given ******')
             print_help()
-            print(len(sys.argv))
             sys.exit()
     except getopt.GetoptError:
         print_help()
