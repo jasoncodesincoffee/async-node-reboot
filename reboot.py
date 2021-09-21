@@ -100,12 +100,14 @@ async def main(argv):
         # Create list of devices that are tagged to be rebooted
         print(f'Acquiring device list from the organization {org["name"]}')
         if use_file:
+            print('CSV file selected to use as input for devices to reboot...')
             devices = await listDevicesFromFile(file_path)
         else:
+            print('Primary option of device tags will be used for device reboot...')
             devices = await listOrgDevices(aiomeraki, org_id)
 
         total = len(devices)
-        print(f'Found {total} devices tagged to be rebooted')
+        print(f'Found {total} devices to be rebooted')
 
         print('Reboot of devices in progress....')
         deviceTasks = [rebootDevice(aiomeraki, device) for device in devices]
