@@ -19,7 +19,7 @@ usage: python3 reboot_script.py [-o] organizationId
 def print_help():
     lines = READ_ME.split('\n')
     for line in lines:
-        print('# {0}'.format(line))
+        print(f'# {line}')
 
 async def rebootDevice(aiomeraki: meraki.aio.AsyncDashboardAPI, device):
     try:
