@@ -39,7 +39,7 @@ async def listDevicesFromFile(file):
             for row in csvReader:
                 taggedDevices.append({"serial": row[0]})
         except csv.Error as e:
-            sys.exit('file {0}, line {1}: {2}'.format(file, csvReader.line_num, e))
+            sys.exit(f'file {file}, line {csvReader.line_num}: {e}')
     return taggedDevices
 
 
