@@ -5,11 +5,18 @@ import asyncio
 import meraki.aio
 import csv
 
-RETRIES = 5 # Max number of retries per call for 429 rate limit status code
+RETRIES = 5  # Max number of retries per call for 429 rate limit status code
 
 READ_ME = '''
-The script reboots all devices with the tag "reboot".
+The script reboots all devices in the Dashboard organization with the tag "reboot".
 Alternatively, a .csv file can be specified to use a list of serials
+
+Example csv format:
+---------------
+serials
+xxxx-xxxx-xxxx
+yyyy-yyyy-yyyy
+---------------
 
 usage: python3 reboot_script.py [-o] organizationId
        python3 reboot_script.py [-o] organizationId [-i, --infile] path_to_csv
@@ -85,8 +92,8 @@ async def main(argv):
 
     async with meraki.aio.AsyncDashboardAPI(
         log_file_prefix=__file__[:-3],
-        print_console= False,
-        maximum_retries= RETRIES
+        print_console=False,
+        maximum_retries=RETRIES
     ) as aiomeraki:
         # Get org details
         try:
