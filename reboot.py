@@ -28,6 +28,18 @@ def print_help():
     for line in lines:
         print(f'# {line}')
 
+
+def updt(total, progress):
+    barLength, status = 20, ""
+    progress = float(progress) / float(total)
+    if progress >= 1.:
+        progress, status = 1, "\r\n"
+    block = int(round(barLength * progress))
+    text = "\r[{}] {:.0f}% {}".format("#" * block + "-" * (barLength - block), round(progress * 100, 0), status)
+    sys.stdout.write(str(text))
+    sys.stdout.flush()
+
+
 async def rebootDevice(aiomeraki: meraki.aio.AsyncDashboardAPI, device):
     try:
         await aiomeraki.devices.rebootDevice(device['serial'])
@@ -114,12 +126,15 @@ async def main(argv):
             devices = await listOrgDevices(aiomeraki, org_id)
 
         total = len(devices)
+        count=0
         print(f'Found {total} devices to be rebooted')
 
         print('Reboot of devices in progress....')
         deviceTasks = [rebootDevice(aiomeraki, device) for device in devices]
         for task in asyncio.as_completed(deviceTasks):
             await task
+            updt(total, count+1)
+            count += 1
 
         print(f'Reboot of all {total} devices completed!!!')
 
