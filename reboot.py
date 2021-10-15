@@ -1,5 +1,4 @@
 import getopt
-import os
 import sys
 import asyncio
 import meraki.aio
@@ -35,7 +34,7 @@ def updt(total, progress):
     if progress >= 1.:
         progress, status = 1, "\r\n"
     block = int(round(barLength * progress))
-    text = "\r[{}] {:.0f}% {}".format("#" * block + "-" * (barLength - block), round(progress * 100, 0), status)
+    text = f"\r[{'#' * block + '-' * (barLength - block)}] {round(progress * 100, 0):.0f}% {status}"
     sys.stdout.write(str(text))
     sys.stdout.flush()
 
