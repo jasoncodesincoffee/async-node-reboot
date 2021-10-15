@@ -27,3 +27,5 @@ The script uses the following options:
 The script will scan all devices in the specified org for any device tags of "*reboot*". It will then, asynchronously, send API calls for rebooting the list of collected devices.
 
 Alternatively, a path to a csv file can be provided at runtime to use a single column of serials (with a "serials" header) to reboot.
+
+A log file will be available in the same directory after the script completes.
