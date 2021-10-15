@@ -125,18 +125,15 @@ async def main(argv):
             print('Primary option of device tags will be used for device reboot...')
             devices = await listOrgDevices(aiomeraki, org_id)
 
-        total = len(devices)
-        count=0
-        print(f'Found {total} devices to be rebooted')
+        print(f'Found {len(devices)} devices to be rebooted')
 
         print('Reboot of devices in progress....')
         deviceTasks = [rebootDevice(aiomeraki, device) for device in devices]
-        for task in asyncio.as_completed(deviceTasks):
+        for count, task in enumerate(asyncio.as_completed(deviceTasks)):
             await task
-            updt(total, count+1)
-            count += 1
+            updt(len(devices), count+1)
 
-        print(f'Reboot of all {total} devices completed!!!')
+        print(f'Reboot of all {len(devices)} devices completed!!!')
 
 
 if __name__ == "__main__":
