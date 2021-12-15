@@ -30,3 +30,6 @@ The script will scan all devices in the specified org for any device tags of "*r
 Alternatively, a path to a csv file can be provided at runtime to use a single column of serials (with a "serials" header) to reboot.
 
 A log file will be available in the same directory after the script completes.
+
+
+![screenshot](https://user-images.githubusercontent.com/54417236/146243258-3f848325-74d4-4bfc-9544-620d08251132.jpg)
