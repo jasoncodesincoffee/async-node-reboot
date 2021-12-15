@@ -1,4 +1,4 @@
-# Async Node Reboot
+# Meraki API Async Node Reboot Script
 
 This script allows for the reboot of nodes via various means.
 
