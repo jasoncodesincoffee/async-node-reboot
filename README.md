@@ -1,4 +1,4 @@
-# Asynch Node Reboot
+# Async Node Reboot
 
 This script allows for the reboot of nodes via various means.
 
