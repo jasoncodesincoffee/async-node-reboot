@@ -9,8 +9,8 @@ Example: export MERAKI_DASHBOARD_API_KEY=093b24e85df15a3e66f1fc359f4c48493eaa1b7
 
 **Requirements**
 
-Python 3.7+
-Meraki SDK (tested on v1.12)
+- Python 3.7+
+- Meraki Python SDK (tested on v1.12)
 
 Example: pip install meraki
 
