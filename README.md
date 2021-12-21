@@ -4,7 +4,7 @@ This script allows for the reboot of nodes via various means.
 
 To use the script you must first export your API key as an OS environmental variable.
 
-Example: export MERAKI_DASHBOARD_API_KEY=093b24e85df15a3e66f1fc359f4c48493eaa1b73
+Example: `export MERAKI_DASHBOARD_API_KEY=093b24e85df15a3e66f1fc359f4c48493eaa1b73`
 
 
 **Requirements**
@@ -12,7 +12,7 @@ Example: export MERAKI_DASHBOARD_API_KEY=093b24e85df15a3e66f1fc359f4c48493eaa1b7
 - Python 3.7+
 - Meraki Python SDK (tested on v1.12)
 
-Example: pip install meraki
+Example: `pip install meraki`
 
 **Syntax**
 
